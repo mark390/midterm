@@ -42,7 +42,7 @@
     Price
   </label>
 </div>
-    <button class="add-button bold">Submit</button>
+    <button class="add-button bold" id="user">Submit</button>
     </form>
     </header>
     <table id="publictable">

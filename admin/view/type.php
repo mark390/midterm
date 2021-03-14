@@ -25,7 +25,7 @@
         <input type="hidden" name="action"
         value="delete_type">
         <input type="hidden" name="delete_type" value=<?= $t['ID'] ?>>
-        <button class="remove-button">Remove</button>
+        <button class="remove-button" id="delete">Remove</button>
         </form></td>
       </tr>
       <?php endforeach; ?>  

@@ -42,6 +42,6 @@
   <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
   <input type="text" name="price" class="form-control" aria-label="Price" aria-describedby="inputGroup-sizing-default">
 </div>
-<button class="add-button bold">Add Vehicle</button>
+<button class="add-button bold" id="add">Add Vehicle</button>
     </form>
 <?php include('footer.php'); ?>

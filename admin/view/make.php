@@ -25,7 +25,7 @@
         <input type="hidden" name="action"
         value="delete_make">
         <input type="hidden" name="delete_make" value=<?= $m['ID'] ?>>
-        <button class="remove-button">Remove</button>
+        <button class="remove-button" id="delete">Remove</button>
         </form></td>
       </tr>
       <?php endforeach; ?>  

@@ -67,7 +67,7 @@
         <input type="hidden" name="action"
         value="delete_vehicle">
         <input type="hidden" name="delete_vehicle" value=<?= $v['vehicle_id'] ?>>
-        <button class="remove-button">Remove</button>
+        <button class="remove-button" id="delete">Remove</button>
         </form></td>
       </tr>
       <?php endforeach; ?>  

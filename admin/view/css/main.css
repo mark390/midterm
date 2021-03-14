@@ -1,0 +1,25 @@
+table, th, td {
+    border: 1px solid black;
+    align-items: center;
+  }
+
+  #delete:link, #delete:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+#delete:hover, #delete:active {
+    background-color: red;
+  }
+
+#add:hover, #add:active {
+    background-color: green;
+  }
+
+footer {
+    text-align: right;
+}
