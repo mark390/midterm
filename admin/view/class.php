@@ -10,7 +10,7 @@
   <input type="text" name="class" class="form-control" aria-label="Class" aria-describedby="inputGroup-sizing-default">
 </div>
 <p>Note: You must add the new class to html selector to use when adding a new vehicle!</p><br>
-<button class="add-button bold">Add Type</button>
+<button class="add-button bold">Add Class</button>
     </form>
     </header>
     <table id="maketable">
