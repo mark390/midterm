@@ -3,7 +3,7 @@
     $lifetime = 60 * 60 * 24 * 30;
     session_set_cookie_params($lifetime, '/');
     session_start();
-    
+
     require('model/database.php');
     require('model/vehicle_db.php');
 
@@ -42,6 +42,9 @@
                 include('view/register.php');
                 break;
             }
+        case "signout";
+            include('view/signout.php');
+            break;
         default:
             $vehicles = get_vehicles();
             include('view/public.php');
