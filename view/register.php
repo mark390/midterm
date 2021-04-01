@@ -2,7 +2,6 @@
 
 <section id="list" class="list">
     <header class="list row list header">
-    <h1>Please Enter Your Name!</h1>
     <form action="../index.php" method="get" id="username" class="list_header_select">
     <input type="hidden" name="action" value="register">
     <div class="input-group mb-3">
