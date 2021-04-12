@@ -11,7 +11,11 @@
     $typeid = filter_input(INPUT_POST, 'typeid', FILTER_VALIDATE_INT);
     $classid = filter_input(INPUT_POST, 'classid', FILTER_VALIDATE_INT);
     $sorter = filter_input(INPUT_POST, 'sorter', FILTER_SANITIZE_STRING);
+<<<<<<< Updated upstream
     $firstname = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
+=======
+    $firstname = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+>>>>>>> Stashed changes
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if (!$action) {
