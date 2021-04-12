@@ -2,11 +2,7 @@
 
 <section id="list" class="list">
     <header class="list row list header">
-<<<<<<< Updated upstream
-    <form action="../index.php" method="get" id="username" class="list_header_select">
-=======
     <form action="." method="POST" id="username" class="list_header_select">
->>>>>>> Stashed changes
     <input type="hidden" name="action" value="register">
     <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Please enter your name!</span>
