@@ -1,6 +1,7 @@
 <?php
     require('../model/database.php');
     require('../model/vehicle_db.php');
+    require('../model/admin_db.php');
 
     $makeid = filter_input(INPUT_POST, 'makeid', FILTER_VALIDATE_INT);
     $typeid = filter_input(INPUT_POST, 'typeid', FILTER_VALIDATE_INT);
@@ -15,6 +16,9 @@
     $new_make = filter_input(INPUT_POST, 'make', FILTER_SANITIZE_STRING);
     $new_type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
     $new_class = filter_input(INPUT_POST, 'class', FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);
 
 
     $vehicleID = filter_input(INPUT_POST, 'delete_vehicle', FILTER_VALIDATE_INT);
@@ -86,6 +90,33 @@
             add_class($new_class);
             header("Location: .?action=list_classes");
             break;
+        case "logout":
+            $_SESSION = array();
+            session_destroy();
+            $login_message = 'You have been logged out!';
+            include('../view/login.php');
+            break;
+        case "show_register":
+            include('../view/register.php');
+            break;
+        case "show_login":
+            include('../view/login.php');
+            break;
+        case "login":
+            
+            if (is_valid_admin_login($username, $password)) {
+                $_SESSION['is_valid_admin'] = true;
+                header("Location: ..?action=list_vehicles");
+            } else {
+                $login_message = 'Please log in';
+                include('view/login.php');
+            }
+            break;
+        case "register":
+            add_admin($username, $password);
+            $_SESSION['is_valid_admin'] = true;
+            header("Location: ..?action=list_vehicles");
+            $break;
         default:
             $vehicles = get_vehicles();
             $makes = get_Makes();
