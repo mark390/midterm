@@ -1,6 +1,8 @@
-<?php 
-    function acceptable_username($username) {
-        global $db;
+<?php
+
+class ValidRegister {
+    public static function acceptable_username($username) {
+        $db = Database::getDB();
         $query = 'SELECT COUNT(`id`) FROM `administrators` WHERE `username` = :username';
         $statement = $db->prepare($query);
         $statement->bindValue(':username', $username);
@@ -14,8 +16,8 @@
         }
     }
 
-    function add_admin($username, $password) {
-        global $db;
+    public static function add_admin($username, $password) {
+        $db = Database::getDB();
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $query = 'INSERT INTO `administrators` (username, password) VALUES (:username, :password)';
         $statement = $db->prepare($query);
@@ -25,8 +27,8 @@
         $statement->closeCursor();
     }
 
-    function is_valid_admin_login($username, $password) {
-        global $db;
+    public static function is_valid_admin_login($username, $password) {
+        $db = Database::getDB();
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $query = 'SELECT password FROM `administrators` WHERE username = :username';
         $statement = $db->prepare($query);
@@ -41,3 +43,4 @@
             return password_verify($password, $hash);
         }
     }
+}

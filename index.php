@@ -27,11 +27,11 @@
 
     switch($action) {
         case "list_vehicles":
-            $vehicles = get_vehicles();
+            $vehicles = VehicleDB::get_vehicles();
             include('view/public.php');
             break;
         case "list_vehicles_select":
-            $vehicles = get_vehicle_by_selector($sorter, $makeid, $typeid, $classid);
+            $vehicles = VehicleDB::get_vehicle_by_selector($sorter, $makeid, $typeid, $classid);
             include('view/public.php');
             break;
         case "register";
@@ -46,7 +46,7 @@
             include('view/signout.php');
             break;
         default:
-            $vehicles = get_vehicles();
+            $vehicles = VehicleDB::get_vehicles();
             include('view/public.php');
     }
     

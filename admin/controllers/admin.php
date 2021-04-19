@@ -38,7 +38,7 @@
                 break;
             case "login":
                 
-                if (is_valid_admin_login($username, $password)) {
+                if (ValidRegister::is_valid_admin_login($username, $password)) {
                     $_SESSION['is_valid_admin'] = true;
                     header("Location: ..?action=list_vehicles");
                 } else {
@@ -47,7 +47,7 @@
                 }
                 break;
             case "register":
-                add_admin($username, $password);
+                ValidRegister::add_admin($username, $password);
                 $_SESSION['is_valid_admin'] = true;
                 header("Location: ..?action=list_vehicles");
                 $break;

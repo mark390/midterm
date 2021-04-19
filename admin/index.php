@@ -39,55 +39,55 @@
 
     switch($action) {
         case "list_vehicles":
-            $vehicles = get_vehicles();
+            $vehicles = VehicleDB::get_vehicles();
             include('view/admin.php');
             break;
         case "list_vehicles_select":
-            $vehicles = get_vehicle_by_selector($sorter, $makeid, $typeid, $classid);
+            $vehicles = VehicleDB::get_vehicle_by_selector($sorter, $makeid, $typeid, $classid);
             include('view/admin.php');
             break;
         case "delete_vehicle":
-            delete_vehicle($vehicleID);
+            VehicleDB::delete_vehicle($vehicleID);
             header("Location: .?action=list_vehicles");
             break;
         case "add_vehicle":
-            add_vehicle($new_year, $new_model, $new_price, $new_typeID, $new_classID, $new_makeID);
+            VehicleDB::add_vehicle($new_year, $new_model, $new_price, $new_typeID, $new_classID, $new_makeID);
             header("Location: .?action=list_vehicles");
             break;
         case "list_makes":
-            $makes = get_Makes();
+            $makes = VehicleDB::get_Makes();
             include('view/make.php');
             break;
         case "delete_make":
-            delete_make($makeID);
+            VehicleDB::delete_make($makeID);
             header("Location: .?action=list_makes");
             break;
         case "add_make":
-            add_make($new_make);
+            VehicleDB::add_make($new_make);
             header("Location: .?action=list_makes");
             break;
         case "list_types":
-            $types = get_Type();
+            $types = VehicleDB::get_Type();
             include('view/type.php');
             break;
         case "delete_type":
-            delete_type($typeID);
+            VehicleDB::delete_type($typeID);
             header("Location: .?action=list_types");
             break;
         case "add_type":
-            add_type($new_type);
+            VehicleDB::add_type($new_type);
             header("Location: .?action=list_types");
             break;
         case "list_classes":
-            $classes = get_Classes();
+            $classes = VehicleDB::get_Classes();
             include('view/class.php');
             break;
         case "delete_class":
-            delete_class($classID);
+            VehicleDB::delete_class($classID);
             header("Location: .?action=list_classes");
             break;
         case "add_class":
-            add_class($new_class);
+            VehicleDB::add_class($new_class);
             header("Location: .?action=list_classes");
             break;
         case "logout":
@@ -104,7 +104,7 @@
             break;
         case "login":
             
-            if (is_valid_admin_login($username, $password)) {
+            if (ValidRegister::is_valid_admin_login($username, $password)) {
                 $_SESSION['is_valid_admin'] = true;
                 header("Location: ..?action=list_vehicles");
             } else {
@@ -113,15 +113,15 @@
             }
             break;
         case "register":
-            add_admin($username, $password);
+            ValidRegister::add_admin($username, $password);
             $_SESSION['is_valid_admin'] = true;
             header("Location: ..?action=list_vehicles");
             $break;
         default:
-            $vehicles = get_vehicles();
-            $makes = get_Makes();
-            $types = get_Type();
-            $classes = get_Classes();
+            $vehicles = VehicleDB::get_vehicles();
+            $makes = VehicleDB::get_Makes();
+            $types = VehicleDB::get_Type();
+            $classes = VehicleDB::get_Classes();
             break;
     }
     
